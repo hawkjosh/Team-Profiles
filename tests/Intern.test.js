@@ -8,7 +8,7 @@ describe('Intern', () => {
     it('Should return name from object with name, id, email, and school properties.', () => {
       const obj = new Intern('Intern Name', 34567, 'intern.name@mail.com', 'Intern College');
 
-      expect(obj.returnName()).toEqual('Intern Name');
+      expect(obj.getName()).toEqual('Intern Name');
     });
   });
 
@@ -17,7 +17,7 @@ describe('Intern', () => {
     it('Should return id from object with name, id, email, and school properties.', () => {
       const obj = new Intern('Intern Name', 34567, 'intern.name@mail.com', 'Intern College');
 
-      expect(obj.returnID()).toEqual(34567);
+      expect(obj.getId()).toEqual(34567);
     });
   });
 
@@ -26,7 +26,7 @@ describe('Intern', () => {
     it('Should return email from object with name, id, email, and school properties.', () => {
       const obj = new Intern('Intern Name', 34567, 'intern.name@mail.com', 'Intern College');
 
-      expect(obj.returnEmail()).toEqual('intern.name@mail.com');
+      expect(obj.getEmail()).toEqual('intern.name@mail.com');
     });
   });
 
@@ -35,16 +35,16 @@ describe('Intern', () => {
     it('Should return github from object with name, id, email, and school properties.', () => {
       const obj = new Intern('Intern Name', 34567, 'intern.name@mail.com', 'Intern College');
 
-      expect(obj.returnSchool()).toEqual('Intern College');
+      expect(obj.getSchool()).toEqual('Intern College');
     });
   });
 
-  // Created test for returning the Intern title
-  describe('titleReturnTest', () => {
-    it('Should return title of Intern from object with name, id, email, and school properties.', () => {
+  // Created test for returning the Intern role
+  describe('roleReturnTest', () => {
+    it('Should return role of Intern from object with name, id, email, and school properties.', () => {
       const obj = new Intern('Intern Name', 34567, 'intern.name@mail.com', 'Intern College');
 
-      expect(obj.returnTitle()).toEqual('Intern');
+      expect(obj.getRole()).toEqual('Intern');
     });
   });
 });

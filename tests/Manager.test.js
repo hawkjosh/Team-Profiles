@@ -8,7 +8,7 @@ describe('Manager', () => {
     it('Should return name from object with name, id, email, and office properties.', () => {
       const obj = new Manager('Manager Name', 45678, 'manager.name@mail.com', 100);
 
-      expect(obj.returnName()).toEqual('Manager Name');
+      expect(obj.getName()).toEqual('Manager Name');
     });
   });
 
@@ -17,7 +17,7 @@ describe('Manager', () => {
     it('Should return id from object with name, id, email, and office properties.', () => {
       const obj = new Manager('Manager Name', 45678, 'manager.name@mail.com', 100);
 
-      expect(obj.returnID()).toEqual(45678);
+      expect(obj.getId()).toEqual(45678);
     });
   });
 
@@ -26,25 +26,16 @@ describe('Manager', () => {
     it('Should return email from object with name, id, email, and office properties.', () => {
       const obj = new Manager('Manager Name', 45678, 'manager.name@mail.com', 100);
 
-      expect(obj.returnEmail()).toEqual('manager.name@mail.com');
+      expect(obj.getEmail()).toEqual('manager.name@mail.com');
     });
   });
 
-  // Created test for returning the office property
-  describe('officeReturnTest', () => {
-    it('Should return github from object with name, id, email, and office properties.', () => {
+  // Created test for returning the Manager role
+  describe('roleReturnTest', () => {
+    it('Should return role of Manager from object with name, id, email, and office properties.', () => {
       const obj = new Manager('Manager Name', 45678, 'manager.name@mail.com', 100);
 
-      expect(obj.returnOffice()).toEqual(100);
-    });
-  });
-
-  // Created test for returning the Manager title
-  describe('titleReturnTest', () => {
-    it('Should return title of Manager from object with name, id, email, and office properties.', () => {
-      const obj = new Manager('Manager Name', 45678, 'manager.name@mail.com', 100);
-
-      expect(obj.returnTitle()).toEqual('Manager');
+      expect(obj.getRole()).toEqual('Manager');
     });
   });
 });

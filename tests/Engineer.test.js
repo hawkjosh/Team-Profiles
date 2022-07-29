@@ -8,7 +8,7 @@ describe('Engineer', () => {
     it('Should return name from object with name, id, email, and github properties.', () => {
       const obj = new Engineer('Engineer Name', 23456, 'engineer.name@mail.com', 'gitEngine1');
 
-      expect(obj.returnName()).toEqual('Engineer Name');
+      expect(obj.getName()).toEqual('Engineer Name');
     });
   });
 
@@ -17,7 +17,7 @@ describe('Engineer', () => {
     it('Should return id from object with name, id, email, and github properties.', () => {
       const obj = new Engineer('Engineer Name', 23456, 'engineer.name@mail.com', 'gitEngine1');
 
-      expect(obj.returnID()).toEqual(23456);
+      expect(obj.getId()).toEqual(23456);
     });
   });
 
@@ -26,7 +26,7 @@ describe('Engineer', () => {
     it('Should return email from object with name, id, email, and github properties.', () => {
       const obj = new Engineer('Engineer Name', 23456, 'engineer.name@mail.com', 'gitEngine1');
 
-      expect(obj.returnEmail()).toEqual('engineer.name@mail.com');
+      expect(obj.getEmail()).toEqual('engineer.name@mail.com');
     });
   });
 
@@ -35,16 +35,16 @@ describe('Engineer', () => {
     it('Should return github from object with name, id, email, and github properties.', () => {
       const obj = new Engineer('Engineer Name', 23456, 'engineer.name@mail.com', 'gitEngine1');
 
-      expect(obj.returnGithub()).toEqual('gitEngine1');
+      expect(obj.getGithub()).toEqual('gitEngine1');
     });
   });
 
-  // Created test for returning the Engineer title
-  describe('titleReturnTest', () => {
-    it('Should return title of Engineer from object with name, id, email, and github properties.', () => {
+  // Created test for returning the Engineer role
+  describe('roleReturnTest', () => {
+    it('Should return role of Engineer from object with name, id, email, and github properties.', () => {
       const obj = new Engineer('Engineer Name', 23456, 'engineer.name@mail.com', 'gitEngine1');
 
-      expect(obj.returnTitle()).toEqual('Engineer');
+      expect(obj.getRole()).toEqual('Engineer');
     });
   });
 });

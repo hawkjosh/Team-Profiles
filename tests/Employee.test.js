@@ -8,7 +8,7 @@ describe('Employee', () => {
     it('Should return name from object with name, id, and email properties.', () => {
       const obj = new Employee('Employee Name', 12345, 'employee.name@mail.com');
 
-      expect(obj.returnName()).toEqual('Employee Name');
+      expect(obj.getName()).toEqual('Employee Name');
     });
   });
 
@@ -17,7 +17,7 @@ describe('Employee', () => {
     it('Should return id from object with name, id, and email properties.', () => {
       const obj = new Employee('Employee Name', 12345, 'employee.name@mail.com');
 
-      expect(obj.returnID()).toEqual(12345);
+      expect(obj.getId()).toEqual(12345);
     });
   });
 
@@ -26,16 +26,16 @@ describe('Employee', () => {
     it('Should return email from object with name, id, and email properties.', () => {
       const obj = new Employee('Employee Name', 12345, 'employee.name@mail.com');
 
-      expect(obj.returnEmail()).toEqual('employee.name@mail.com');
+      expect(obj.getEmail()).toEqual('employee.name@mail.com');
     });
   });
 
-  // Created test for returning the employee title
-  describe('titleReturnTest', () => {
-    it('Should return title of employee from object with name, id, and email properties.', () => {
+  // Created test for returning the Employee role
+  describe('roleReturnTest', () => {
+    it('Should return role of Employee from object with name, id, and email properties.', () => {
       const obj = new Employee('Employee Name', 12345, 'employee.name@mail.com');
 
-      expect(obj.returnTitle()).toEqual('Employee');
+      expect(obj.getRole()).toEqual('Employee');
     });
   });
 });

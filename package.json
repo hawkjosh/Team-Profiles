@@ -1,0 +1,29 @@
+{
+  "name": "module10-team-profile-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hawkjosh/module10-team-profile-challenge.git"
+  },
+  "author": "Josh Hawk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hawkjosh/module10-team-profile-challenge/issues"
+  },
+  "homepage": "https://github.com/hawkjosh/module10-team-profile-challenge#readme",
+  "dependencies": {
+    "inquirer": "^6.3.1"
+  },
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
+}

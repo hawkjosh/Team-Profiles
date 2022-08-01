@@ -38,7 +38,7 @@ function start() {
   })
 }
 
-// Created function for command line prompt to add employees
+// Created function with command line prompt to add employees
 function newEmployee() {
   inquirer.prompt([
     {
@@ -92,10 +92,21 @@ function newEmployee() {
   })
 }
 
-// Created function to render HTML content for employee card display
-function renderEmployeeCard(employee) {
-  switch (employee.getRole()) {
-    case 'Engineer':
+// Created function to render HTML content for employee info cards
+function renderEmployeeCards(employee) {
+  if (employee.getRole() === 'Manager') {
+    return `<div class="card m-5 shadow-lg" style="width: 18rem;">
+        <div class="text-white" style="background-color: #0077f7;">
+          <h5 class="card-title m-3" style="font-size: 2rem">${employee.name}</h5>
+          <h5 class="card-text m-3 ps-2" style="font-size: 1.5rem"><i class="fi fi-rr-mug-hot"></i> Manager</h5>
+        </div>
+        <ul class="list-group list-group-flush mb-2 mx-3">
+          <li class="list-group-item mt-5 mb-1">ID: ${employee.id}</li>
+          <li class="list-group-item mb-2 border-bottom-0">Email: <a href="mailto: ${employee.email}" target="_blank">${employee.email}</a></li>
+          <li class="list-group-item mt-2 mb-5">Office Number: ${employee.officeNumber}</li>
+        </ul>
+      </div>`
+  } else if (employee.getRole() === 'Engineer') {
       return `<div class="card m-5 shadow-lg" style="width: 18rem;">
           <div class="text-white" style="background-color: #0077f7;">
             <h5 class="card-title m-3" style="font-size: 2rem">${employee.name}</h5>
@@ -107,53 +118,31 @@ function renderEmployeeCard(employee) {
             <li class="list-group-item mt-2 mb-5">GitHub: <a href="https://www.github.com/${employee.github}" target="_blank">${employee.github}</a></li>
           </ul>
         </div>`;
-
-    case 'Intern':
-      return `<div class="card m-5 shadow-lg" style="width: 18rem;">
-          <div class="text-white" style="background-color: #0077f7;">
-            <h5 class="card-title m-3" style="font-size: 2rem">${employee.name}</h5>
-            <h5 class="card-text m-3 ps-2" style="font-size: 1.5rem"><i class="fi fi-rr-graduation-cap"></i> Intern</h5>
-          </div>
-          <ul class="list-group list-group-flush mb-2 mx-3">
-            <li class="list-group-item mt-5 mb-1">ID: ${employee.id}</li>
-            <li class="list-group-item mb-2 border-bottom-0">Email: <a href="mailto: ${employee.email}" target="_blank">${employee.email}</a></li>
-            <li class="list-group-item mt-2 mb-5">School: ${employee.school}</li>
-          </ul>
-        </div>`;
+    } else if (employee.getRole() === 'Intern') {
+        return `<div class="card m-5 shadow-lg" style="width: 18rem;">
+            <div class="text-white" style="background-color: #0077f7;">
+              <h5 class="card-title m-3" style="font-size: 2rem">${employee.name}</h5>
+              <h5 class="card-text m-3 ps-2" style="font-size: 1.5rem"><i class="fi fi-rr-graduation-cap"></i> Intern</h5>
+            </div>
+            <ul class="list-group list-group-flush mb-2 mx-3">
+              <li class="list-group-item mt-5 mb-1">ID: ${employee.id}</li>
+              <li class="list-group-item mb-2 border-bottom-0">Email: <a href="mailto: ${employee.email}" target="_blank">${employee.email}</a></li>
+              <li class="list-group-item mt-2 mb-5">School: ${employee.school}</li>
+            </ul>
+          </div>`;
+      }
   }
-}
 
-// Created function to consolidate all employee card HTML content for display
-function displayEmployeeCard() {
-  if (employeeInfo.length > 1) {
-    let employeeCard = renderEmployeeCard(employeeInfo[1]);
-    for (let i = 2; i < employeeInfo.length; i++) {
-      employeeCard += renderEmployeeCard(employeeInfo[i]);
-    }
-    return employeeCard;
-  } else {
-      return '';
+// Created function to combine all employee info into single HTML block
+function displayEmployeeCards() {
+  let employeeCard = renderEmployeeCards(employeeInfo[0]);
+  for (let i = 1; i < employeeInfo.length; i++) {
+    employeeCard += renderEmployeeCards(employeeInfo[i]);
   }
+  return employeeCard;
 }
 
-// Created function to render/display HTML content of manager card
-function displayManagerCard() {
-  return `<div class="card m-5 shadow-lg" style="width: 18rem;">
-      <div class="text-white" style="background-color: #0077f7;">
-        <h5 class="card-title m-3" style="font-size: 2rem">${employeeInfo[0].name}</h5>
-        <h5 class="card-text m-3 ps-2" style="font-size: 1.5rem"><i class="fi fi-rr-mug-hot"></i> Manager</h5>
-      </div>
-      <ul class="list-group list-group-flush mb-2 mx-3">
-        <li class="list-group-item mt-5 mb-1">ID: ${employeeInfo[0].id}</li>
-        <li class="list-group-item mb-2 border-bottom-0">Email: <a href="mailto: ${employeeInfo[0].email}" target="_blank">${employeeInfo[0].email}</a></li>
-        <li class="list-group-item mt-2 mb-5">Office Number: ${employeeInfo[0].officeNumber}</li>
-      </ul>
-    </div>
-
-    ${displayEmployeeCard()}`
-}
-
-// Created function to render/display base HTML content for page and inserted the manager/employee cards content
+// Created function to render/display base HTML content for page and insert the employee info cards
 function renderHTML() {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -175,7 +164,7 @@ function renderHTML() {
   </div>
 
   <div class="d-flex flex-wrap justify-content-center mt-3">
-    ${displayManagerCard()}
+    ${displayEmployeeCards()}
   </div>
 </body>
 

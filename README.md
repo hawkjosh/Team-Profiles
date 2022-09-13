@@ -1,4 +1,4 @@
-# module10-team-profile-challenge
+# Team-Profiles
 
 ## Description
 
